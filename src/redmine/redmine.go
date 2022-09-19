@@ -31,7 +31,7 @@ type Redmine struct {
 
 func NewClient(log *logrus.Entry, cfg config.RedmineConfig) (Redmine, error) {
 	var r rd.Context
-	r.SetEndpoint(cfg.Host)
+	r.SetEndpoint(cfg.ApiHost)
 	r.SetAPIKey(cfg.ApiKey.Get())
 	projectId, err := getProjectId(r, cfg.Project)
 	if err != nil {
@@ -48,7 +48,7 @@ func NewClient(log *logrus.Entry, cfg config.RedmineConfig) (Redmine, error) {
 		TrackerId:      trackerId,
 		TaskStatusId:   taskStatusId,
 		SubjectLimiter: cfg.SubjectLimiter,
-		Host:           cfg.Host,
+		Host:           cfg.WebHost,
 	}, nil
 }
 

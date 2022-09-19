@@ -25,7 +25,8 @@ type BotConfig struct {
 }
 
 type RedmineConfig struct {
-	Host           string       `default:"https://redmine.example.com" usage:"redmine server url"`
+	ApiHost        string       `default:"http://redmine:3000" usage:"redmine api host"`
+	WebHost        string       `default:"https://redmine.example.com" usage:"redmine web url"`
 	ApiKey         SecretString `default:"<NOT_SET>" usage:"redmine user rest-api token"`
 	Project        string       `default:"Misc" usage:"redmine project name"`
 	Tracker        string       `default:"Task" usage:"redmine tracker name"`
