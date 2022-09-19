@@ -16,7 +16,7 @@ type Bot interface {
 func NewClient(log *logrus.Entry, cfg config.BotConfig, name BotName) (Bot, error) {
 	switch name {
 	case Telegram:
-		return telegram.NewClient(log.WithField("client", Telegram), cfg.Telegram)
+		return telegram.NewClient(log.WithField("client", Telegram.String()), cfg.Telegram)
 	case Slack:
 		return nil, fmt.Errorf("slack bot is TODO")
 	}
