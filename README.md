@@ -1,5 +1,7 @@
 # RedmineBot
 
+[![Build](https://github.com/dossif/redminebot/actions/workflows/build.yml/badge.svg)](https://github.com/dossif/redminebot/actions/workflows/build.yml)
+
 The simplest and fastest way to create a redmine task. Just write a message to Telegram bot.
 
 
