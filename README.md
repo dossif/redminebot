@@ -1,6 +1,6 @@
-# redminebot
+# RedmineBot
 
-Simplest and fastest way to create a redmine task in predefined project. Just write a message to Telegram bot.
+The simplest and fastest way to create a redmine task. Just write a message to Telegram bot.
 
 
 ## Install
@@ -8,6 +8,8 @@ Simplest and fastest way to create a redmine task in predefined project. Just wr
 Telegram bot doc: https://core.telegram.org/bots#3-how-do-i-create-a-bot.
 
 Docker image: https://hub.docker.com/r/dossif/redminebot
+
+Helm chart: https://artifacthub.io/packages/helm/dossif/redminebot
 
 Show configuration args: `redminebot -h`
 
