@@ -9,7 +9,6 @@ import (
 	"redminebot/src/config"
 	"redminebot/src/task"
 	"strings"
-	"unicode/utf8"
 )
 
 const taskUrlTpl = "%v/issues/%v"
@@ -120,11 +119,11 @@ func getTrackerId(r rd.Context, name string) (trackerId int, taskStatusId int, e
 
 func formatTask(msg string, limiter int) (subject string, description string) {
 	l := strings.Split(msg, "\n")
-	s := l[0]
-	if utf8.RuneCountInString(s) > limiter {
-		subject = fmt.Sprintf("%v...", s[0:limiter])
+	sr := []rune(l[0])
+	if len(sr) <= limiter {
+		subject = string(sr)
 	} else {
-		subject = s
+		subject = fmt.Sprintf("%v...", string(sr[:limiter]))
 	}
 	description = strings.Join(l, "\n")
 	return subject, description

@@ -10,7 +10,19 @@ env:
   CGO_ENABLED: 0
   DH_ROOT: dossif
 jobs:
+  Test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: Run unit tests
+        run: go test -cover ./src/*
   Compile:
+    needs: Test
     runs-on: ubuntu-20.04
     steps:
       - name: Get release version from git tag
